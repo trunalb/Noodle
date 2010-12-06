@@ -1,0 +1,10 @@
+{
+"name" : "Noodle",
+"version" : "0.0.1",
+"dependencies" : {
+	"mongodb" : ">=0.7.9",
+	"express" : ">=.0.0rc4",
+	"socket.io" : ">=0.5.3",
+	"jade" : ">=0.5.5"
+	}
+}

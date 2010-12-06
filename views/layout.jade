@@ -1,0 +1,30 @@
+!!!
+html
+  head
+    title Noodle - Doodle on node
+    link(rel="stylesheet", type="text/css" , href="/css/noodle.css")
+    script(type="text/javascript", src="http://yui.yahooapis.com/combo?3.2.0/build/yui/yui-min.js")
+  - if (typeof(init) == 'undefined')
+    :javascript
+      | var gNoodle = {}, newRow='<tr><td class="name">P_NAME</td>',columns = "#{start.cols}".split("|");
+      | gNoodle.cid = #{start.cid};
+      | for( var i=0; i< columns.length ; i++) {
+      |  newRow += '<td></td>';
+      | }
+      | newRow += '</tr>';
+      | gNoodle.row = newRow;
+    script(type="text/javascript", src="http://cdn.socket.io/stable/socket.io.js")
+    script(type="text/javascript", src="/js/noodle.js")
+  body
+    div#wrapper
+      div#header NOoDlE! Doodle using Node!
+      div#body
+        - if (typeof(init) != 'undefined')
+          !=partial('choice_names')
+
+        - else if( typeof(start) != 'undefined')
+          !=partial('table', {locals: {start : start}})
+
+        - else 
+          p Wrong Noodle :(
+      div#footer Suggestions? trunalb[at]gmail[dot]com

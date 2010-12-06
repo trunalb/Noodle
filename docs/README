@@ -1,0 +1,4 @@
+How to run Noodle?
+
+1. Start mongodb first, On my Ubuntu Lucid I have to use : mongod to start MongoDB
+2. Start server.js using node : node server.js

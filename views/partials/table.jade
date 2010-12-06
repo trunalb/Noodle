@@ -1,0 +1,25 @@
+- var headings = start.cols.split("|")
+table#noodleTable
+  tr
+    td.title
+    - each heading in headings
+      td.title #{heading}
+  - each part,name in start.participants
+    tr
+      td.name #{name}
+      - answers = part.split("|")
+      - each answer in answers
+        - if (answer == "y")
+          td.yes #{answer}
+        - else
+          td.no #{answer}
+  tr
+    td
+      input(type:'text', id:'participantName' , value:'Your Name')
+    - each heading in headings
+      td.checkBox
+        input(type:'checkbox')
+  tr
+    td.name 
+      input(type:"button", value:'Save', id :"save")
+
